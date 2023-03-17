@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Flight Form</title>
+</head>
+
+<body>
+	<h2>Enter a New Flight</h2>
+	<form action="/flights" method="POST">
+		<label>Airline:
+            <select name="Airline">
+				<option value="American">American</option>
+				<option value="Southwest">Southwest</option>
+				<option value="United">United</option>
+			</select>
+		</label><br>
+		<label>Airport:
+			<select name="Airport">
+				<option value="AUS">AUS</option>
+				<option value="DFW">DFW</option>
+				<option value="DEN" selected>DEN</option>
+				<option value="LAX">LAX</option>
+                <option value="SAN">SAN</option>
+			</select>
+		<label>Flight Number:
+			<form action="/flights" method="POST" autocomplete="off">
+                <input type="text" name="flight">
+                <button type="submit">Save Flight</button>
+              </form>
+		</label><br>
+		<label>Departs
+			<input type="text" name="Departs">
+		</label><br>
+		<input type="submit" value="Add Flight">
+	</form>
+
+</body>
+
+</html>
