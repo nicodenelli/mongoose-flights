@@ -1,9 +1,24 @@
 const FlightModel = require('../models/flight')
 
+
 module.exports = {
 	new: newFlight,
 	create,
-	index
+	index,
+	show
+	
+}
+
+function show(req, res) {
+	
+	FlightModel.findById(req.params.id)
+			   .then(function(flightDoc) {
+			   console.log(flightDoc)
+			   res.render('flights/show', {
+				flight: flightDoc
+			   })
+			   })
+
 }
 
 
@@ -25,7 +40,7 @@ function index(req, res){
 
 
 function create(req, res){
-    (req.body, " <- contents of the form, req.body");
+    console.log(req.body, " <- contents of the form, req.body");
     FlightModel.create(req.body)
                .then(function(flightWeCreatedInTheDb){
                 console.log(flightWeCreatedInTheDb, " <- flight document")
@@ -44,3 +59,4 @@ function newFlight(req, res){
 	// Render looks in the views folder
 	res.render('flights/new')
 }
+
