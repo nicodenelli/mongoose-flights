@@ -1,4 +1,4 @@
-// import our movie Model so we can find the movie we want to add a review too
+// import my flightModel so I can find the flight I want to add a destination too
 const FlightModel = require('../models/flight');
 
 module.exports = {
@@ -7,28 +7,26 @@ module.exports = {
 
 function create(req, res){
 	console.log(req.body)
-	// Use a Model to find the movie with an id (req.params.id)
+	// Use a Model to find the flight with an id (req.params.id)
 	FlightModel.findById(req.params.id)
 			   .then(function(flightDoc){
 
 					console.log(flightDoc)
 					// mutating a document, 
-					// we are adding/or removing/updating 
-					// something you found from the database
+					// adding/or removing/updating 
+					// something found from the database
 					flightDoc.destinations.push(req.body);
-					// you have to save the document to tell 
-					// mongodb you change something, cuz this 
-					// exists on our express server, mongodb
-					// doesn't know we added req.body to the movies
-					// reviews array
+					// save the document to tell mongodb I changed something, cuz this 
+					// exists on my express server, mongodb doesn't know I added req.body
+                    // to the flights destinations array
 					flightDoc.save()
 								 .then(function(){
 									res.redirect(`/flights/${req.params.id}`)
 								 })
 					
 
-						// Then with the movie we found, we want to add a review to the movie's reviews array
-						// to create a review
+						// Then with the flight I found, I want to add a destination to the flight's
+                        // destinations array to create a destination
 
 			   }).catch(err =>{
 				console.log(err);
