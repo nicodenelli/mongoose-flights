@@ -3,7 +3,7 @@ const FlightModel = require('../models/flight')
 module.exports = {
 	new: newFlight,
 	create,
-	index,
+	index
 }
 
 
@@ -25,7 +25,7 @@ function index(req, res){
 
 
 function create(req, res){
-    // console.log(req.body, " <- contents of the form, req.body");
+    (req.body, " <- contents of the form, req.body");
     FlightModel.create(req.body)
                .then(function(flightWeCreatedInTheDb){
                 console.log(flightWeCreatedInTheDb, " <- flight document")
