@@ -11,7 +11,7 @@
   <div><%= flight.departs %></div>
   
 <h2>Details</h2>
-<form id="add-review-form" method="POST" action="/flights/<%= flight._id %>/destinations">
+<form method="POST" action="/flights/<%= flight._id %>/destinations">
   <label>Arrival:</label>
   <input type="datetime-local" name="arrival">
   <label>Airport:</label>
