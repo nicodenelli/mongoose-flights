@@ -2,7 +2,15 @@
 const FlightModel = require('../models/flight');
 
 module.exports = {
-	create
+	create,
+    delete: deleteFlight
+}
+
+function deleteFlight(req, res){
+	// tell the model to delete the flight of the id 
+	// req.params.id represents the id coming from the form on the client
+	FlightModel.deleteOne(req.params.id);
+	res.redirect('/flights')
 }
 
 function create(req, res){

@@ -9,6 +9,8 @@ module.exports = {
 	
 }
 
+
+
 function show(req, res) {
 	
 	FlightModel.findById(req.params.id)
@@ -18,7 +20,6 @@ function show(req, res) {
 				flight: flightDoc
 			   })
 			   })
-
 }
 
 

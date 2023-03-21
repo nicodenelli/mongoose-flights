@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
-<section id="show-page">
+
+<section>
   <div>Airline: </div>
   <div><%= flight.airline %></div>
   <div>Airport: </div>
@@ -45,5 +46,10 @@
   <% } else { %>
     <h5>No Destinations</h5>
   <% } %>
+  <form method="POST" action="/flights/<%= flight._id %>/destinations?_method=DELETE">
+    <button type="submit">Delete Flight</button>
+    </form>
+  
+
 
     <%- include('../partials/footer') %>
