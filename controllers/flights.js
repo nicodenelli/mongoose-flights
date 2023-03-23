@@ -30,7 +30,7 @@ function index(req, res){
 
 				console.log(allFlights, " <_ data from the db")
 				
-				res.render('flights/index', {flights: allFlights})
+				res.render('flights/index', {flights: allFlights}) // - mongoose-flights/views/flights/index
 			  }).catch(function(err){
 				console.log(err);
 				res.send(err)
